@@ -1,6 +1,5 @@
 var fs = require('fs');
 var _ = require('lodash');
-var gravatar = require('gravatar');
 var Mustache = require('mustache');
 
 var d = new Date();
@@ -36,14 +35,6 @@ function getMonth(startDateStr) {
 }
 
 function render(resumeObject) {
-
-    if(resumeObject.basics && resumeObject.basics.email) {
-        resumeObject.basics.gravatar = gravatar.url(resumeObject.basics.email, {
-                        s: '200',
-                        r: 'pg',
-                        d: 'mm'
-                    });
-    }
 
     if(resumeObject.basics && resumeObject.basics.name) {
         if(resumeObject.basics.name.endsWith("s")) {
