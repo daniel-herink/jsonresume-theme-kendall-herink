@@ -7,8 +7,18 @@ a[href]:after {
   content: none !important;
 }
 
+.container{
+  margin-top: 0px;
+}
+
 #photo{
   display: none;
+}
+#photo-header{
+  margin-top: 0px;
+}
+#text-header {
+  margin-top: 10px;
 }
 
 .box {
@@ -88,4 +98,4 @@ blockquote,
   border-right-color: #999;
   border-width: 4px;
   pointer-events: none;
- }
+}

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resume of {{basics.name}}</title>
+    <title>{{basics.possessive}} Resume</title>
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -22,13 +22,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div id="photo-header" class="text-center">
-            <!-- PHOTO (AVATAR) -->
-            {{#photo}}
-            <div id="photo">
-              <img src="{{photo}}" alt="avatar">
-            </div>
-            {{/photo}}
-            <div id="text-header" {{^photo}}style="margin-top: 90px;"{{/photo}}>
+            <div id="text-header">
               <h1>{{basics.name}}<br>{{#basics.label}}<span>{{basics.label}}</span>{{/basics.label}}</h1>
             </div>
           </div>
@@ -151,13 +145,51 @@
           <!-- PROJECTS -->
           <div class="box">
             <h2><i class= "fas fa-code-branch ico"></i> Projects</h2>
-            <ul class="list-group">
-              {{#projects}}
-              <li class="list-group-item">
-                <span style="font-weight:bold">{{name}}</span>: {{description}}
-              </li>
-              {{/projects}}
-            </ul>
+            {{#projects}}
+              <div class="job clearfix">
+                <div class="row">
+                  <div class="details">
+                    <div class="where">
+                      {{name}}
+                      {{#entity}}
+                      <div class="pull-right">
+                        {{entity}}
+                      </div>
+                      {{/entity}}
+                    </div>
+                    <!-- <ul class="project-keyword">
+                      {{#keywords}}
+                      <li>{{{.}}}</li>
+                      {{/keywords}}
+                    </ul> -->
+                    {{#keywords}}
+                    <span class= "skill badge">{{{.}}}</span>
+                    {{/keywords}}
+                    {{#url}}
+                    <div class="address">
+                      <a href="{{url}}" target= "_blank"><i class="fas fa-globe ico"></i> {{url}}</a>
+                    </div>
+                    {{/url}}
+                    <div class="year">{{startDateMonth}}{{startDateYear}} – {{endDateMonth}}{{endDateYear}}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="job-details col-xs-11">
+                    <div class="description">
+                      {{{description}}}
+                      {{#boolHighlights}}
+                      <div class="highlights">Highlights</div>
+                      <ul class="list-group">
+                        {{#highlights}}
+                        <li class="list-group-item">{{{.}}}</li>
+                        {{/highlights}}
+                      </ul>
+                      {{/boolHighlights}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{/projects}}
           </div>
           {{/projectsBool}}
         </div>

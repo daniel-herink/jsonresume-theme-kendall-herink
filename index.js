@@ -37,7 +37,6 @@ function getMonth(startDateStr) {
 
 function render(resumeObject) {
 
-    resumeObject.basics.capitalName = resumeObject.basics.name.toUpperCase();
     if(resumeObject.basics && resumeObject.basics.email) {
         resumeObject.basics.gravatar = gravatar.url(resumeObject.basics.email, {
                         s: '200',
@@ -45,8 +44,13 @@ function render(resumeObject) {
                         d: 'mm'
                     });
     }
-    if (resumeObject.basics.image || resumeObject.basics.gravatar) {
-        resumeObject.photo = resumeObject.basics.image ? resumeObject.basics.image : resumeObject.basics.gravatar;
+
+    if(resumeObject.basics && resumeObject.basics.name) {
+        if(resumeObject.basics.name.endsWith("s")) {
+            resumeObject.basics.possessive = resumeObject.basics.name + "'";
+        } else {
+            resumeObject.basics.possessive = resumeObject.basics.name + "'s";
+        }
     }
 
     _.each(resumeObject.basics.profiles, function(p){
@@ -154,6 +158,26 @@ function render(resumeObject) {
     if (resumeObject.projects && resumeObject.projects.length) {
         if (resumeObject.projects[0].name) {
             resumeObject.projectsBool = true;
+            _.each(resumeObject.projects, function(w) {
+                if (w.startDate) {
+                    w.startDateYear = (w.startDate || "").substr(0,4);
+                    w.startDateMonth = getMonth(w.startDate || "");
+
+                }
+                if (w.endDate) {
+                    w.endDateYear = (w.endDate || "").substr(0,4);
+                    w.endDateMonth = getMonth(w.endDate || "");
+                } else {
+                    w.endDateYear = 'Present'
+                }
+                if (w.highlights) {
+                    if (w.highlights[0]) {
+                        if (w.highlights[0] != "") {
+                            w.boolHighlights = true;
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -244,7 +268,6 @@ function render(resumeObject) {
     resumeObject.printcss = fs.readFileSync(__dirname + "/print.css", "utf-8");
     var theme = fs.readFileSync(__dirname + '/resume.template', 'utf8');
     var resumeHTML = Mustache.render(theme, resumeObject);
-
 
     return resumeHTML;
 };

@@ -39,6 +39,9 @@ blockquote {
   height: 150px;
   border-radius: 50%;
 }
+#text-header {
+  margin-top: 90px;
+}
 #text-header h1{
   margin: 0;
   padding: 0;
@@ -267,6 +270,27 @@ blockquote {
   font-size: .75em;
   position: absolute;
   margin: 1px 10px;
+}
+
+.project-keyword {
+  margin: 0;
+  padding: 0;
+}
+
+ul.project-keyword li {
+  display: inline-block;
+  /* color: #fff; */
+  margin: 0;
+  padding: 0;
+  /* background: #32475c; */
+  /* font-size: .85em; */
+}
+ul.project-keyword li::after {
+  /* padding: 0 0 0 0.1em; */
+  content: ", ";
+}
+ul.project-keyword li:last-of-type::after {
+  content: "";
 }
 
 #language-skills .skill{
