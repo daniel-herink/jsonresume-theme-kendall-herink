@@ -63,6 +63,8 @@ Refer to the [pink33n/docker-html-to-pdf](https://github.com/pinkeen/docker-html
 Alhtough I made the two changes mentioned at the top, I believe my changes maintain the elegance of the original theme. The reasons I wanted to make my changes are:
 
 1. Removal of the profile picture
+
    Since I work in the U.S., I don't have a need for including a picture with my resume. I understand this is required in Europe, but isn't in the U.S. so I wanted to remove it. Removing the profile picture required changing some of the CSS so that the resulting HTML page looked good again.
 2. Improving the `projects` section
+
    Although the original "Kendall" theme is sublime, I wanted to have a more detailed section for my project(s). I changed the `projects` section to resemble the `work` section in both the JavaScript and Mustache portions of the theme.
