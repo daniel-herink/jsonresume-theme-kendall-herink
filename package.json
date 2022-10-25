@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-kendall-herink",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A JSON Resume theme built with bootstrap",
   "main": "index.js",
   "scripts": {
@@ -9,10 +9,8 @@
   "author": "Daniel Herink",
   "license": "MIT",
   "dependencies": {
-    "jsonresume-theme-kendall-herink": "^1.0.0",
     "lodash": "^4.17.20",
-    "mustache": "^4.2.0",
-    "resumed": "^1.0.3"
+    "mustache": "^4.2.0"
   },
   "repository": {
     "type": "git",
