@@ -1,84 +1,68 @@
-# jsonresume-theme-kendall
+# jsonresume-theme-kendall-herink
 
-A theme for the [JSONResume](https://github.com/jsonresume/resume-schema) schema, that relies on Bootstrap and FontAwesome, added with some personal flair.
+A theme for the [JSONResume](https://github.com/jsonresume/resume-schema) schema, that relies on Bootstrap and FontAwesome, and slightly modified from the superb, original JSONResume theme ["Kendall"](https://github.com/LinuxBozo/jsonresume-theme-kendall).
 
-**NOTE**: This supports schema 1.0.0. Some things may be missing or broken if your resume.json is using the older schema.
+I have made two large changes to the "Kendall" theme:
+1. Removal of the profile picture
+2. Improvement of the `projects` section
 
-## Usage
+You can view my resume, which uses this theme, here: [danielherink.com](https://danielherink.com).
 
-To first get started with this JSONResume theme, you'll need to have the JSONResume CLI installed. If you haven't already install it with `npm install -g resume-cli`. If this doesn't work, try `sudo npm install -g resume-cli`.
+**NOTE**: This supports schema 1.0.0.
 
-After this, you can get your resume.json ready by typing `resume init`. After hitting enter, your resume will be initialized and you can edit it and fill in the neccessary fields. Check out [the official resume-schema repository](https://github.com/jsonresume/resume-schema) for more information on filling these fields.
+## Typical Work-Flow
 
-When you are finished with your resume, you may test it by yet again opening the command line and typing `resume serve --theme kendall` to see how it looks with this theme. You can replace the word `kendall` with other theme names too.
+### Install `resumed`
 
-### Install the command line
+To first use this theme, you will need to install the [`resumed` CLI tool](https://github.com/rbardini/resumed). This is an alternative to the official [JSONResume CLI tool](https://github.com/jsonresume/resume-cli) that is a more modern implementation of the original tool. I prefer it to the JSONResume CLI tool.
 
-We're going to use the official [resume-cli](https://github.com/jsonresume/resume-cli) to run our development server.
-
-Go ahead and install it:
-
-```
-sudo npm install -g resume-cli
-```
-
-### Install npm packages
-
-We need to install the dependencies. `cd` into the theme folder we just downloaded and run:
-
-```bash
-sudo npm install
-```
-
-This will read the local `package.json` and install the packages listed under `dependencies`.
-
-### Serve theme
-
-While inside the theme folder, simply run:
+Install `resumed` and this theme with:
 
 ```
-resume serve --theme .
+npm install resumed jsonresume-theme-kendall-herink
 ```
 
-You should now see this message:
+### Put Together Your JSON Resume
+
+In order to generate an HTML page of your JSON resume, you will of course need your resume info plugged into the proper schema. Refer to the [JSONResume](https://github.com/jsonresume/resume-schema) repo for more information. You can also call (this assumes that `resumed` is installed in a local location):
 
 ```
-Preview: http://localhost:4000
-Press ctrl-c to stop
+/path/to/resumed/bin/resume.js init my-resume.json
 ```
 
-Congratulations, you've made it!
+This will create a JSON resume named "my-resume.json" with a number of fields filled out with generic information. You can use this to replace those default JSON values with your own resume details.
 
-__The theme development can now begin.__
+### Use Theme with `resumed` to Generate HTML
 
-## Tips
+The handy feature of `resumed` is that when you install it with a theme, it will always default to that theme. All that is required is to call:
 
-As of now, the theme supports the following profiles in the basics.profiles array.
+```
+/path/to/resumed/bin/resume.js render my-resume.json -o my-resume.html
+```
 
-* Facebook
-* Github
-* Twitter
-* Google Plus
-* YouTube
-* Vimeo
-* Linkedin
-* Pinterest
-* Flickr
-* Behance
-* Dribbble
-* CodePen
-* Soundcloud
-* Steam
-* Reddit
-* Tumblr
-* Stack Overflow
-* Bitbucket
-* Gitlab
+This will take your filled-in "my-resume.json" and create the HTML form of the resume named "my-resume.html", using this theme (assuming you installed `resumed` as detailed above).
 
-Every single one of these is optional, and every field in the basics.profiles array **must** be entered without spaces. This theme will try to use the matching `-square` version of the icon from FontAwesome if it doesn't already have support for one of your profiles. If you want support for more social networks, feel free to leave an issue, or even better, submit a pull request. Thanks.
+Refer to `resumed` for the full documentation on its usage.
 
-If you want to keep your resume mobile-friendly, please limit the number of profiles to 10, please. No one should have over 10 profiles on their resume anyway.
+### Bonus: Render PDF from HTML
 
-Every section is optional. If you do not include the publications array in your resume.json, no publications section will appear.
+After creating or updating your JSON resume and generating the HTML page from it, the next step is to get a PDF of your resume. For this last step, I use Docker (or [podman](https://github.com/containers/podman), if you're familiar with it) to use a headless Chrome browser to print the HTML page to a PDF file.
 
-If you find any other problems with this theme in specified, do feel free to leave an issue. Thanks.
+To generate a slick-looking PDF, with no margins, and limited to one page, I use the docker call:
+
+```
+docker run -v "/path/to/jsomeresume/folder:/workspace" pink33n/html-to-pdf --url http://localhost/my-resume.html --pdf my-resume.pdf --no-margins --page-ranges 1
+```
+
+This will create a PDF version of your resume named "my-resume.pdf" in the same folder as the "my-resume.html" file. You can drop the `--page-ranges 1` in order to allow for multiple pages for your resume PDF.
+
+Refer to the [pink33n/docker-html-to-pdf](https://github.com/pinkeen/docker-html-to-pdf) for full documentation.
+
+## Why the Changes?
+
+Alhtough I made the two changes mentioned at the top, I believe my changes maintain the elegance of the original theme. The reasons I wanted to make my changes are:
+
+1. Removal of the profile picture
+   Since I work in the U.S., I don't have a need for including a picture with my resume. I understand this is required in Europe, but isn't in the U.S. so I wanted to remove it. Removing the profile picture required changing some of the CSS so that the resulting HTML page looked good again.
+2. Improving the `projects` section
+   Although the original "Kendall" theme is sublime, I wanted to have a more detailed section for my project(s). I changed the `projects` section to resemble the `work` section in both the JavaScript and Mustache portions of the theme.
