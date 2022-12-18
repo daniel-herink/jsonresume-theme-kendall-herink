@@ -68,3 +68,6 @@ Alhtough I made the two changes mentioned at the top, I believe my changes maint
 2. Improving the `projects` section
 
    Although the original "Kendall" theme is sublime, I wanted to have a more detailed section for my project(s). I changed the `projects` section to resemble the `work` section in both the JavaScript and Mustache portions of the theme.
+3. Changed the colors
+
+   I also wanted to modify the colors so they were more "dark theme" and I went with greener colors over the blue colors found in the original theme
