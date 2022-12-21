@@ -5,6 +5,7 @@ A theme for the [JSONResume](https://github.com/jsonresume/resume-schema) schema
 I have made two large changes to the "Kendall" theme:
 1. Removal of the profile picture
 2. Improvement of the `projects` section
+3. Changed colors to be more "dark mode"
 
 You can view my resume, which uses this theme, here: [danielherink.com](https://danielherink.com).
 
