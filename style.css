@@ -36,7 +36,7 @@ blockquote {
   border-radius: 50%;
   overflow: hidden;
   padding: 5px;
-  background: rgb(53, 96, 51);
+  background: rgb(76, 136, 36);
   display: inline-block;
 }
 #photo img{
@@ -62,7 +62,6 @@ blockquote {
 }
 #text-header h1 span{
   color: rgb(121, 189, 75);
-  opacity: 0.7;
 }
 #text-header h1 sup{
   opacity: 0.5;
@@ -81,8 +80,7 @@ blockquote {
   margin-bottom: 25px;
 }
 .box h2{
-  color: rgb(59, 92, 50);
-  /* color: rgb(52, 92, 25); */
+  color: rgb(76, 136, 36);
   font-size: 1.5em;
   font-weight: 700;
   text-transform: uppercase;
@@ -105,12 +103,12 @@ blockquote {
   top: 0;
   content: ' ';
   display: block;
-  background: rgb(59, 92, 50);
+  background: rgb(76, 136, 36);
   background: -moz-linear-gradient(
     top,
     rgb(0, 0, 0) 0%,
-    rgb(59, 92, 50) 7%,
-    rgb(59, 92, 50) 89%,
+    rgb(76, 136, 36) 7%,
+    rgb(76, 136, 36) 89%,
     rgb(0, 0, 0) 100%
   );
   background: -webkit-gradient(
@@ -118,36 +116,36 @@ blockquote {
     left top,
     left bottom,
     color-stop(0%,rgb(0, 0, 0)),
-    color-stop(7%,rgb(59, 92, 50)),
-    color-stop(89%,rgb(59, 92, 50)),
+    color-stop(7%,rgb(76, 136, 36)),
+    color-stop(89%,rgb(76, 136, 36)),
     color-stop(100%,rgb(0, 0, 0))
   );
   background: -webkit-linear-gradient(
     top,
     rgb(0, 0, 0) 0%,
-    rgb(59, 92, 50) 7%,
-    rgb(59, 92, 50) 89%,
+    rgb(76, 136, 36) 7%,
+    rgb(76, 136, 36) 89%,
     rgb(0, 0, 0) 100%
   );
   background: -o-linear-gradient(
     top,
     rgb(0, 0, 0) 0%,
-    rgb(59, 92, 50) 7%,
-    rgb(59, 92, 50) 89%,
+    rgb(76, 136, 36) 7%,
+    rgb(76, 136, 36) 89%,
     rgb(0, 0, 0) 100%
   );
   background: -ms-linear-gradient(
     top,
     rgb(0, 0, 0) 0%,
-    rgb(59, 92, 50) 7%,
-    rgb(59, 92, 50) 89%,
+    rgb(76, 136, 36) 7%,
+    rgb(76, 136, 36) 89%,
     rgb(0, 0, 0) 100%
   );
   background: linear-gradient(
     to bottom,
     rgb(0, 0, 0) 0%,
-    rgb(59, 92, 50) 7%,
-    rgb(59, 92, 50) 89%,
+    rgb(76, 136, 36) 7%,
+    rgb(76, 136, 36) 89%,
     rgb(0, 0, 0) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(
@@ -291,7 +289,6 @@ blockquote {
 .item-skills{
   height: 30px;
   color: rgb(255, 255, 255);
-  /* color: rgb(199, 255, 215); */
   padding: 5px 10px;
   margin-bottom: 5px;
   white-space: nowrap;
@@ -307,13 +304,13 @@ blockquote {
   margin-right: 5px;
   margin-bottom: 5px;
   padding: 5px 10px;
-  /* background: rgb(59, 92, 50); */
+  /* background: rgb(76, 136, 36); */
   background: rgb(52, 92, 25);
   position: relative;
   font-size: .85em;
 }
 .skill-level {
-  background-color: rgb(59, 92, 50);
+  background-color: rgb(76, 136, 36);
   border-radius: 4px;
   color: rgb(255, 255, 255);
   padding: 1px 8px;
@@ -329,10 +326,9 @@ blockquote {
 
 ul.project-keyword li {
   display: inline-block;
-  /* color: #fff; */
   margin: 0;
   padding: 0;
-  /* background: rgb(59, 92, 50); */
+  /* background: rgb(76, 136, 36); */
   /* font-size: .85em; */
 }
 ul.project-keyword li::after {
