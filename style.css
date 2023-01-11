@@ -243,12 +243,19 @@ blockquote {
 }
 .publication {
   margin-bottom: 0;
+  background: rgb(0, 0, 0);
+  border-color: rgb(33, 33, 33);
 }
-.publication .name{
+.publication .panel-heading {
+  color:rgb(255, 255, 255);
+  background: rgb(33, 33, 33);
+  border-bottom: 1px solid rgb(48, 48, 48);
+}
+.publication .name {
   font-size: 1em;
   font-weight: bold;
 }
-.publication .year{
+.publication .year {
     opacity: 0.7;
 }
 .publication p{
